@@ -12,12 +12,13 @@ enum GradientShape {
 const canvas: HTMLCanvasElement = document.getElementById("canvas") as HTMLCanvasElement;
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d");
 
-document.getElementById("logo").style.top = `${0.5 * window.innerHeight - 0.5 * (document.getElementById("logo") as HTMLImageElement).height}px`;
-document.getElementById("direction_btns").style.top = `${0.15 * window.innerHeight + canvas.height + 40}px`;
-document.getElementById("avatar_input").style.top = `${0.15 * window.innerHeight + canvas.height + 80}px`;
-document.getElementById("download_btn").style.top = `${0.15 * window.innerHeight + canvas.height + 120}px`;
-document.getElementById("words").style.top = `${0.5 * window.innerHeight - 0.5 * (document.getElementById("words") as HTMLParagraphElement).clientHeight}px`;
-
+window.onload = () => {
+    document.getElementById("logo").style.top = `${0.5 * window.innerHeight - 0.5 * (document.getElementById("logo") as HTMLImageElement).height}px`;
+    document.getElementById("direction_btns").style.top = `${0.15 * window.innerHeight + canvas.height + 40}px`;
+    document.getElementById("avatar_input").style.top = `${0.15 * window.innerHeight + canvas.height + 80}px`;
+    document.getElementById("download_btn").style.top = `${0.15 * window.innerHeight + canvas.height + 120}px`;
+    document.getElementById("words").style.top = `${0.5 * window.innerHeight - 0.5 * (document.getElementById("words") as HTMLParagraphElement).clientHeight}px`;
+}
 //For mobile
 if (canvas.offsetLeft + canvas.width > document.getElementById("words").offsetLeft)
     document.getElementById("words").remove();
@@ -68,8 +69,11 @@ class Country {
     static redraw(): void {
         const ctx: CanvasRenderingContext2D = Country.canvas.getContext("2d");
         ctx.clearRect(0, 0, Country.canvas.width, Country.canvas.height);
-        ctx.drawImage(Country.avatar, 0, 0, Country.canvas.height / Country.avatar.height * Country.avatar.width, Country.canvas.height);
-        Country.drawGradientImage(Country.selectedShape, `flags/${Country.selectedElement.id}.png`, Country.canvas);
+        if (Country.avatar.width > Country.avatar.height)
+            ctx.drawImage(Country.avatar, 0, 0, Country.canvas.height / Country.avatar.height * Country.avatar.width, Country.canvas.height);
+        else
+            ctx.drawImage(Country.avatar, 0, 0, Country.canvas.width, Country.avatar.height * Country.canvas.width / Country.avatar.width);
+        Country.drawGradientImage(Country.selectedShape, `flags/${Country.selectedElement.id.toLowerCase()}.png`, Country.canvas);
     }
 
     static changeShape(shape: GradientShape): void {
