@@ -13,6 +13,8 @@ const canvas: HTMLCanvasElement = document.getElementById("canvas") as HTMLCanva
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d");
 
 window.onload = () => {
+    document.getElementById("board_right").style.height = `${window.innerHeight}px`;    
+    document.getElementById("countries_container").style.height = `${window.innerHeight}px`;
     document.getElementById("logo").style.top = `${0.5 * window.innerHeight - 0.5 * (document.getElementById("logo") as HTMLImageElement).height}px`;
     document.getElementById("direction_btns").style.top = `${0.15 * window.innerHeight + canvas.height + 40}px`;
     document.getElementById("avatar_input").style.top = `${0.15 * window.innerHeight + canvas.height + 80}px`;
