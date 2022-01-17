@@ -123,7 +123,7 @@ class Country {
                     const x: number = Math.floor(index / 4 % width); //a pixel's horizontal coordinate 
                     const y: number = Math.floor(index / 4 / width);
                     const d: number = Math.sqrt(Math.pow(width - x, 2) + Math.pow(y, 2)); //a pixel's distance from the top-right corner
-                    const alpha: number = Math.floor((255 - 1.2 * d) * (255 / colors[index]) * 0.95);
+                    const alpha: number = Math.floor((255 - 1 * d) * (255 / colors[index]) * 0.95);
                     colors[index] = alpha;
                 }
                 return colors;
@@ -133,7 +133,7 @@ class Country {
                     const x: number = Math.floor(index / 4 % width);
                     const y: number = Math.floor(index / 4 / width);
                     const d: number = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)); //a pixel's distance from the top-left corner
-                    const alpha: number = Math.floor((255 - 1.2 * d) * (255 / colors[index]) * 0.95);
+                    const alpha: number = Math.floor((255 - 2 * d) * (255 / colors[index]) * 0.95);
                     colors[index] = alpha;
                 }
                 return colors;
@@ -141,7 +141,7 @@ class Country {
             case GradientShape.ToLeft:
                 for (let index = 3; index < colors.length; index += 4) {
                     const x: number = Math.floor(index / 4 % width);
-                    const alpha: number = Math.floor((255 - 1.2 * (width - x)) * (255 / colors[index]) * 0.9);
+                    const alpha: number = Math.floor((255 - 1 * (width - x)) * (255 / colors[index]) * 0.9);
                     colors[index] = alpha;
                 }
                 return colors;
@@ -149,7 +149,7 @@ class Country {
             case GradientShape.ToRight:
                 for (let index = 3; index < colors.length; index += 4) {
                     const x: number = Math.floor(index / 4 % width);
-                    const alpha: number = Math.floor((255 - 2 * x) * (255 / colors[index]) * 0.9);
+                    const alpha: number = Math.floor((255 - 3 * x) * (255 / colors[index]) * 0.9);
                     colors[index] = alpha;
                 }
                 return colors;
