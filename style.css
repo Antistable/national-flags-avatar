@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(rgb(177, 255, 245), rgba(173, 255, 190, 0.952), rgba(176, 255, 160, 0.973));
+    background-image: linear-gradient(to right, rgb(201, 250, 186), rgb(197, 253, 255));
 }
 
 #board_right {
