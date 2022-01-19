@@ -13,7 +13,7 @@ const canvas: HTMLCanvasElement = document.getElementById("canvas") as HTMLCanva
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d");
 
 window.onload = () => {
-    document.getElementById("board_right").style.height = `${window.innerHeight}px`;    
+    document.getElementById("board_right").style.height = `${window.innerHeight}px`;
     document.getElementById("countries_container").style.height = `${window.innerHeight}px`;
     document.getElementById("logo").style.top = `${0.5 * window.innerHeight - 0.5 * (document.getElementById("logo") as HTMLImageElement).height}px`;
     document.getElementById("direction_btns").style.top = `${0.15 * window.innerHeight + canvas.height + 40}px`;
@@ -24,8 +24,15 @@ window.onload = () => {
 //For mobile
 if (canvas.offsetLeft + canvas.width > document.getElementById("words").offsetLeft)
     document.getElementById("words").remove();
+
 if (document.getElementById("logo").offsetLeft + (document.getElementById("logo") as HTMLImageElement).width > canvas.offsetLeft)
     document.getElementById("logo").remove();
+
+//For Huawei
+const platform: string = navigator.userAgent.toLowerCase();
+if (platform.includes("huawei") || platform.includes("honor")) {
+    document.getElementById("avatar_input").removeAttribute("accept");
+}
 
 const avatar: HTMLImageElement = new Image(); //default avatar
 avatar.src = "icons/avatar.png";
