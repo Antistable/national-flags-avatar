@@ -21,6 +21,7 @@ window.onload = () => {
     document.getElementById("download_btn").style.top = `${0.15 * window.innerHeight + canvas.height + 120}px`;
     document.getElementById("words").style.top = `${0.5 * window.innerHeight - 0.5 * (document.getElementById("words") as HTMLParagraphElement).clientHeight}px`;
 }
+
 //For mobile
 if (canvas.offsetLeft + canvas.width > document.getElementById("words").offsetLeft)
     document.getElementById("words").remove();
@@ -78,6 +79,7 @@ class Country {
     static redraw(): void {
         const ctx: CanvasRenderingContext2D = Country.canvas.getContext("2d");
         ctx.clearRect(0, 0, Country.canvas.width, Country.canvas.height);
+        //Cut avatar
         if (Country.avatar.width > Country.avatar.height)
             ctx.drawImage(Country.avatar, 0, 0, Country.canvas.height / Country.avatar.height * Country.avatar.width, Country.canvas.height);
         else
