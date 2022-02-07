@@ -5,6 +5,6 @@
 The original script is `script.ts`, `<script></script>`in `index.html` is compiled & compressed. 
 ~~(By the way I uninstalled npm by accident when I was typing something...)~~
 
-[Demo](https://ruler.one/avatar)↓
+[Demo](https://ruler-one.pages.dev/avatar/)↓
 
 ![screenshot](https://user-images.githubusercontent.com/82582936/149667372-d310423c-9b88-453e-86f7-4f820bb3664c.png)
